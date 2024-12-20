@@ -1,50 +1,114 @@
-# React + TypeScript + Vite
+```markdown
+# Calculadora de Propinas
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto es una calculadora de propinas desarrollada con React, TypeScript y Tailwind CSS. Permite al usuario ingresar el monto de la cuenta y seleccionar un porcentaje de propina para calcular la cantidad total a pagar, y total a pagar por persona.
 
-Currently, two official plugins are available:
+## Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Ingreso del monto de la cuenta
+- Seleccionar o escribir el porcentaje de propina
+- Cálculo automático de la propina, total, y total por persona
+- **Modo Oscuro**: Alterna entre el modo claro y oscuro para una mejor experiencia visual.
+- **Cambio de Moneda**: Permite al usuario cambiar entre Dólares y Euros para los cálculos.
+- **Cambio de Idioma**: Opción para cambiar el idioma de la interfaz entre Inglés y Español.
 
-## Expanding the ESLint configuration
+## Tecnologías Utilizadas
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Vite
+- React
+- TypeScript
+- Tailwind CSS
 
-- Configure the top-level `parserOptions` property like this:
+## Instalación
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+Para clonar y ejecutar este proyecto en tu máquina local, sigue los siguientes pasos:
+
+1. **Clonar el repositorio**:
+   
+   ```bash
+   git clone https://github.com/JoseSojo/rt2_calcular_propina
+   ```
+
+2. **Navegar al directorio del proyecto**:
+
+   ```bash
+   cd rt2_calcular_propina-propinas
+   ```
+
+3. **Instalar las dependencias**:
+
+   ```bash
+   npm install
+   ```
+
+## Ejecutar el Proyecto
+
+Una vez instaladas las dependencias, puedes ejecutar el proyecto con el siguiente comando:
+
+  ```bash
+  npm run dev
+  ```
+
+Esto lanzará la aplicación en el navegador, normalmente en `http://localhost:5173`.
+
+## Estructura del Proyecto
+
+La estructura básica del proyecto es la siguiente:
+
+```
+/calculadora-propinas
+├── /public           # Archivos públicos
+├── /src              # Código fuente de la aplicación
+│   ├── /context      # Contexto en react
+│   ├── /assets       # Imagenes y archivos estáticos
+│   ├── /service      # Capa de servicio (Lógica)
+│   ├── /types        # Tipos e interface en typescript
+│   ├── /UI           # Componentes y elementos visuales
+│   └── App.tsx       # Componente principal
+│   └── main.tsx      # Punto de entrada
+│   └── index.css     # Único archivo css
+├── index.html        # Archivo HTML principal
+└── package.json      # Dependencias y scripts
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Configuración de Tailwind CSS
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+Asegúrate de tener Tailwind CSS configurado correctamente. Si no lo has hecho aún, puedes seguir estos pasos:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+1. Instalar Tailwind CSS, PostCSS y Autoprefixer:
+
+   ```bash
+   npm install -D tailwindcss postcss autoprefixer
+   ```
+
+2. Iniciar la configuración de Tailwind:
+
+   ```bash
+   npx tailwindcss init -p
+   ```
+
+3. En tu archivo `tailwind.config.js`, asegúrate de agregar la ruta a tus archivos de plantilla:
+
+   ```javascript
+   /** @type {import('tailwindcss').Config} */
+   module.exports = {
+     content: ['./index.html', './src/**/*.tsx'],
+     theme: {
+       extend: {},
+     },
+     plugins: [],
+   }
+   ```
+
+4. Agrega las directivas de Tailwind a tu archivo CSS principal (por ejemplo, `src/index.css`):
+
+   ```css
+   @tailwind base;
+   @tailwind components;
+   @tailwind utilities;
+   ```
+
+---
+
+¡Gracias por visitar el proyecto! Si tienes alguna pregunta o sugerencia, no dudes en abrir un issue.
 ```
